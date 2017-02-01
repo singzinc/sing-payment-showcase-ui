@@ -1,0 +1,83 @@
+<div class="">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <h2>Meeting - Meeting Point</h2>
+              <div class="x_content">
+                <div class="form-group">
+                  <a href="#/CreateMeetingPoint"><button type="button" class="btn btn-warning">Create</button></a>
+                </div>
+                <br>
+                <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+
+				 <div ng-controller="findAllPro">
+	                  <div class="form-group">
+	                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Province
+	                    </label>
+	                    <div class="col-md-6 col-sm-6 col-xs-12">
+	                      <select class="form-control" required ng-model="selectedprovince" ng-options="province.provinceId as province.provinceNameEn for province in provinces" ng-change="change()">
+	                      </select>
+                          <input type="hidden" id="province_id" value="{{selectedprovince}}">
+	                    </div>
+	                  </div>
+	
+	                  <div class="form-group">
+	                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select City
+	                    </label>
+	                    <div class="col-md-6 col-sm-6 col-xs-12">
+	                      <select id="heard" class="form-control" required ng-model="selectedcity" ng-options="city.cityId as city.cityNameEn for city in citys">	                        
+	                      </select>
+                          <input type="hidden" id="city_id" value="{{selectedcity}}">
+	                    </div>
+	                  </div>
+				</div>
+                  
+                  <div class="ln_solid"></div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                      <button class="btn btn-warning" ng-click="searchHospital()">Search</button>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+
+				
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <table id="datatable" datatable="ng" class="table">
+                      <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Last Modified</th>
+                        <th>Status</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                      </thead>
+
+
+                      <tbody>
+                      <tr ng-repeat="meeting in results">
+                        <td>{{meeting.meetingPointId}}</td>
+                        <td>{{meeting.meetingName}}</td>
+                        <td>{{ meeting.lastModifiedDate | date:'medium' }}</td>
+                        <td>{{meeting.status.statusName}}</td>
+                        <td><a href="#/EditMeetingPoint/{{meeting.meetingPointId}}">Edit</a></td>
+                        <td><a href="#">Delete</a></td>
+                      </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+				
+				
+            </div>
+        </div>
+    </div>
+</div>

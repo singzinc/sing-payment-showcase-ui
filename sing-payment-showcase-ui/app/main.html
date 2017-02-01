@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Payment show case</title>
+
+    <!-- Bootstrap -->
+    <link href="public/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="public/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/vendors/angular-datatables/dist/css/angular-datatables.min.css">
+
+    <!-- Custom Theme Style -->
+    <link href="public/build/css/custom.css" rel="stylesheet">
+    
+    <!-- Error Message Style -->
+    <link href="public/build/css/error-message.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md" ng-app="singApp">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="main.html" class="site_title">
+	
+            </a>
+          </div>
+          <div class="clearfix"></div>
+
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <!--<h3>General</h3>-->
+              <ul class="nav side-menu">
+                <li><a href="main.html"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="#/CreateBraintreePayment"><i class="fa fa-laptop"></i>Create Payment</a></li>
+                <li><a href="#/CheckPayment"><i class="fa fa-coffee"></i>Check Payment</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav>
+            <div class="nav toggle" style = "width:60px">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+			<div class="nav toggle title-nav">
+			   <span>Payment show case</span>
+			</div>
+
+            <ul class="nav toggle navbar-right logout-nav " style = "width:100px">
+				<span>
+				<a href="#" class="logout"><i class="fa fa-sign-out"></i>Logout</a>
+				</span>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- /top navigation -->
+    </div>
+
+
+
+    <!-- page content -->
+    <div class="right_col" role="main" ng-view="" bs-loading-overlay="">
+    </div>
+    <!-- /page content -->
+
+  </div>
+
+      <!-- jQuery -->
+      <script src="public/vendors/jquery/dist/jquery.min.js"></script>
+      <!-- Bootstrap -->
+      <script src="public/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- Angular -->
+      <script src="public/vendors/angular/angular.min.js"></script>
+      <!-- Datatables -->
+      <script src="public/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+      <script src="public/vendors/angular-datatables/dist/angular-datatables.min.js"></script>
+
+      <!-- Angular-Route -->
+      <script src="public/vendors/angular-route/angular-route.js"></script>
+      <!-- Angular loading overlay -->
+      <script src="public/vendors/angular-loading-overlay/dist/angular-loading-overlay.js"></script>
+      <script src="public/vendors/angular-loading-overlay-http-interceptor/dist/angular-loading-overlay-http-interceptor.js"></script>
+      <script src="public/vendors/angular-bootstrap/ui-bootstrap.js"></script>
+      <!-- -->
+      <script src="public/vendors/angular-base64-upload/dist/angular-base64-upload.min.js"></script>
+      
+	  <script src="public/vendors/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
+      <script src="public/vendors/angular-messages/angular-messages.js"></script>
+	  <script src="public/vendors/angular-credit-cards/release/angular-credit-cards.js"></script>
+
+	 <!-- Angular-lightbox -->
+	  <link rel="stylesheet" href="public/vendors/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
+	  <script src="public/vendors/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
+	  <!--
+	  <script src="public/vendors/braintree-angular/lib/braintree-angular.js"></script>
+	  -->
+	  <!--
+	  <script src="public/vendors/braintree-web/client.js"></script>
+  -->
+  
+  <!-- Load the Client component. -->
+
+<script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+<!-- Load the Hosted Fields component. -->
+
+
+      <!-- angular -->
+      <script src="private/js/angular/app.js"></script>
+      <script src="private/js/angular/config.js"></script>
+      <script src="private/js/angular/controller.js"></script>
+      <script src="private/js/angular/services.js"></script>
+
+      <!-- Custom Theme Scripts -->
+      <script src="public/build/js/custom.min.js"></script>
+
+
+  </body>
+</html>

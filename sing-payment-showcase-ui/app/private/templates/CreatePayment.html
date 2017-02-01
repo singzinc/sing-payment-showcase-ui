@@ -1,0 +1,287 @@
+<div class="">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <h2>Create New Payment</h2>
+            </div>
+			
+			<script type="text/ng-template" id="form-messages">
+			  <div ng-message="required">This field cannot be blank</div>
+			  <div ng-message="minlength">The value for this field is too short</div>
+			  <div ng-message="maxlength">The value for this field is too long</div>
+			  <div ng-message="email">You have entered an incorrect email value</div>
+			  <div ng-message="pattern">You did not enter the value in the correct format</div>
+			  <div ng-message="password-characters">
+				Your password must consist of alphabetical or numeric characters.
+				It must also contain at least one special character, a number as well as an uppercase letter.
+			  </div>
+			</script>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="x_panel">
+					  <div class="x_content">
+						<br>
+						<form name="paymentForm" ng-submit="saveOrUpdatePayment()" novalidate class="form-horizontal form-label-left">
+
+						
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Custome Name
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input type="text" name="customerName" ng-model="payment.customerName" 
+											ng-minlength="3"
+											ng-maxlength="16" 
+											required 
+											class="form-control col-md-7 col-xs-12">							
+								</div>
+								<div>
+									<div ng-messages="paymentForm.customerName.$error">
+									  <div class="" ng-message="required">Required</div>
+									  <div ng-message="minlength">Min length is 3</div>
+									  <div ng-message="maxlength">Max length is 16</div>
+									</div>
+								</div>
+						</div>
+
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Custome Phone
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input type="number" name="customerPhone" ng-model="payment.customerPhone" 
+											ng-minlength="8"
+											ng-maxlength="10" 
+											required 
+											class="form-control col-md-7 col-xs-12">							
+								</div>
+								<div>
+									<div ng-messages="paymentForm.customerPhone.$error">
+									  <div class="" ng-message="required">Required</div>
+									  <div ng-message="minlength">Min length is 8</div>
+									  <div ng-message="maxlength">Max length is 10</div>
+									</div>
+								</div>
+						</div>
+						
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Price
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								<input type="text" class="form-control" name="price" placeholder="Decimal" ng-model="payment.price" 
+											ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" 
+											ng-minlength="1"
+											ng-maxlength="10"
+											required />
+											<!--
+								  <input type="text" name="price" ng-model="payment.price" 
+											ng-minlength="1"
+											ng-maxlength="10" 
+											required 
+											class="form-control col-md-7 col-xs-12">			
+									-->											
+								</div>
+								<div>
+									<span class="help-block" ng-show="!paymentForm.price.$valid">
+										Invalid!
+									</span>
+									<div ng-messages="paymentForm.price.$error">
+		
+									  <div class="" ng-message="required">Required</div>
+									  <div ng-message="minlength">Min length is 8</div>
+									  <div ng-message="maxlength">Max length is 10</div>
+									</div>
+								</div>
+						</div>
+						
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Credit CardHolder Name
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input type="text" name="creditCardHolderName" ng-model="payment.creditCardHolderName" 
+											ng-minlength="3"
+											ng-maxlength="100" 
+											required 
+											class="form-control col-md-7 col-xs-12">							
+								</div>
+								<div>
+									<div ng-messages="paymentForm.creditCardHolderName.$error">
+									  <div class="" ng-message="required">Required</div>
+									  <div ng-message="minlength">Min length is 3</div>
+									  <div ng-message="maxlength">Max length is 100</div>
+									</div>
+								</div>
+						</div>
+						
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Currency
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								<select class="form-control" name="currency" ng-model="payment.currency" required >
+									<option value="USD">USD</option>
+									<option value="HKD">HKD</option>
+									<option value="AUD">AUD</option>
+									<option value="EUR">EUR</option>
+									<option value="JPY">JPY</option>
+									<option value="CNY">CNY</option>
+								</select>
+								<!--
+								  <input type="text" name="creditCardHolderName" ng-model="payment.creditCardHolderName" 
+											ng-minlength="3"
+											ng-maxlength="100" 
+											required 
+											class="form-control col-md-7 col-xs-12">		
+								-->			
+								</div>
+								<div>
+									<div ng-messages="paymentForm.currency.$error">
+									  <div class="" ng-message="required">Required</div>
+									</div>
+								</div>
+						</div>
+						<hr>
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Credit Card Number
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input type="text" name="creditCardNumber" ng-model="payment.creditCardNumber" 
+											ng-minlength="15"
+											ng-maxlength="18" 
+											required 
+											cc-number cc-eager-type
+											class="form-control col-md-7 col-xs-12">
+								<!--	
+								<input type="text" class="form-control" id="cardNumber" cc-number cc-eager-type name="ccNumber" ng-model="card.number">
+								-->
+								</div>
+								<div>{{paymentForm.creditCardNumber.$valid | yesNo}}
+									<div ng-messages="paymentForm.creditCardNumber.$error">
+									  <div class="" ng-message="required">Required</div>
+									  <div ng-message="minlength">Min length is 15</div>
+									  <div ng-message="maxlength">Max length is 18</div>
+									</div>
+								</div>
+						</div>
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Credit Card Type
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								
+								  <input type="text" name="cardType" id ="cardType" ng-model="paymentForm.creditCardNumber.$ccType" placeholder="Unknow Type"
+											class="form-control col-md-7 col-xs-12" ng-readonly="true" />
+											
+							
+								  
+								<!--	
+								<input type="text" class="form-control" id="cardNumber" cc-number cc-eager-type name="ccNumber" ng-model="card.number">
+								-->
+								</div>
+								<div>
+									<div>
+										<!--
+									  {{paymentForm.creditCardNumber.$valid | yesNo}}
+									  {{paymentForm.creditCardNumber.$ccEagerType || 'Unknown'}}
+									  {{paymentForm.creditCardNumber.$ccType || 'Unknown'}}
+									  -->
+									</div>
+								</div>
+						</div>						
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Credit Card Exp Mon
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input type="text" name="creditCardExpMon" ng-model="payment.creditCardExpMon" placeholder="MM"
+											ng-minlength="2"
+											ng-maxlength="2" 
+											required 
+											cc-exp-month
+											class="form-control col-md-7 col-xs-12">							
+								</div>
+								<div>
+									
+									<div ng-messages="paymentForm.creditCardExpMon.$error">
+									  <div class="" ng-message="required">Required</div>
+									  <div ng-message="minlength">Min length is 1</div>
+									  <div ng-message="maxlength">Max length is 2</div>
+									</div>
+								</div>
+						</div>	
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Credit Card Exp Year
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input type="text" name="creditCardExpYear" ng-model="payment.creditCardExpYear" placeholder="YY"
+											ng-minlength="2"
+											ng-maxlength="2" 
+											required 
+											cc-exp-year
+											class="form-control col-md-7 col-xs-12">							
+								</div>
+								<div>
+								{{paymentForm.creditCardExpMon.$valid | yesNo}}
+								{{paymentForm.creditCardExpYear.$valid | yesNo}}
+									
+									<div ng-messages="paymentForm.creditCardExpYear.$error">
+									  <div class="" ng-message="required">Required</div>
+									  <div ng-message="minlength">Min length is 2</div>
+									  <div ng-message="maxlength">Max length is 4</div>
+									</div>
+								</div>
+						</div>	
+						<div class="item form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Credit Card CCV
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+								  <input type="text" name="creditCardCCV" ng-model="payment.creditCardCCV" 
+											ng-minlength="3"
+											ng-maxlength="4" 
+											required 
+											cc-cvc cc-type="paymentForm.creditCardNumber.$ccType" 
+											class="form-control col-md-7 col-xs-12">							
+								</div>
+								<div>
+									{{paymentForm.creditCardCCV.$valid | yesNo}}
+									<div ng-messages="paymentForm.creditCardCCV.$error">
+									  <div class="" ng-message="required">Required</div>
+									  <div ng-message="minlength">Min length is 4</div>
+									</div>
+								</div>
+						</div>	
+						
+						<div class="ln_solid"></div>
+							  <div class="form-group">
+								<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								  <button type="submit" class="btn btn-warning" ng-disabled="paymentForm.$invalid">Submit</button>
+								</div>
+							  </div>
+
+							</form>
+						  </div>
+						</div>
+<!--
+  <button ng-click="toggleModal('Success')" class="btn btn-default">Success</button>
+  <button ng-click="toggleModal('Remove')" class="btn btn-default">Remove</button>
+  <button ng-click="toggleModal('Deny')" class="btn btn-default">Deny</button>
+  <button ng-click="toggleModal('Cancel')" class="btn btn-default">Cancel</button>
+  -->
+  <modal visible="showModal">
+	<div ng-if="statusMsg  == 'error'" >
+		{{message}}
+	</div>
+	<div ng-if="statusMsg  == 'paypal'" >
+		Refer Code : {{referCodeMsg}} <br>
+	    Paypal Payment Id : {{paypalPaymentIdMsg}}
+	</div>
+	
+	<div ng-if="statusMsg  == 'braintree'" >
+		Refer Code : {{referCodeMsg}} <br>
+	    
+	</div>
+     
+  </modal>
+ 
+						
+						
+		  	</div>
+			
+			
+        </div>
+    </div>
+</div>
